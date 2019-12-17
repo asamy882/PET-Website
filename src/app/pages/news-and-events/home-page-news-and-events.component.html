@@ -1,0 +1,96 @@
+  <!-- Features Section Start -->
+  <section id="Articles" class="section wow slideInRight" data-wow-delay="0.2s">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Some Articles</h2>
+          <hr class="lines">
+          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br>          Lorem
+            ipsum dolor sit amet, consectetur.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4 col-xs-12 box-item wow slideInLeft" data-wow-delay="0.9s">
+                  <span class="icon">
+                    <i class="lnr lnr-question-circle"></i>
+                  </span>
+                  <div class="text">
+                    <h4>WHAT IS PET?</h4>
+                    <p>PET is an acronym for polyethylene terephthalate, which is a long-chain polymer belonging to the generic
+                      family of polyesters [1]. PET is formed from the intermediates, terephthalic acid (TPA) and ethylene
+                      glycol (EG), which are both derived from oil feedstock.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12 box-item wow slideInDown" data-wow-delay="1.3s">
+                  <span class="icon">
+                    <i class="lnr lnr-layers"></i>
+                  </span>
+                  <div class="text">
+                    <h4>FOOD PACKAGING</h4>
+                    <p>In general it can be seen that the desired properties for packaging applications are attained from the
+                      intrinsic properties of PET polymer. Therefore additives such as antioxidants, plasticizers, heat or
+                      UV stabilizers are not required. .
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-12 box-item  wow slideInRight" data-wow-delay="1.7s">
+                  <span class="icon">
+                    <i class="lnr lnr-sync"></i>
+                  </span>
+                  <div class="text">
+                    <h4>USE OF RECOVERED PET</h4>
+                    <p>Recovered and recycled PET has to comply with all the rules and regulations that apply to virgin materials.
+                      The health and safety of the consumer is of prime importance when considering reuse and recycling of
+                      plastics, or any materials in food contact uses.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section End -->
+
+<section id="News" class="section wow slideInLeft" data-wow-delay="400ms">
+  <!-- Container Starts -->
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">News & Events</h2>
+      <hr class="lines">
+      <p class="section-subtitle">keep in touch with our news and events</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item" *ngFor="let a of articals">
+        <!-- Blog Item Starts -->
+        <div class="blog-item-wrapper">
+          <div class="blog-item-img">
+            <a href="single-post.html">
+              <img [src]="serverUrl + a.ArticleImage" alt="">
+            </a>
+          </div>
+          <div class="blog-item-text">
+            <div class="meta-tags">
+              <span class="date"><i class="lnr  lnr-clock"></i>{{ a.PublishingDate }}</span>
+            </div>
+            <h3>
+              <a href="single-post.html">{{ a.Title }}</a>
+            </h3>
+            <p>
+              {{ a.Body }}
+            </p>
+            <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Blog Item Wrapper Ends-->
+      </div>
+
+
+
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,163 @@
+<section id="Products" class="section wow slideInLeft" data-wow-delay="0.2s">
+  <!-- Container Starts -->
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Products</h2>
+
+    </div>
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- -->
+        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="pro1-tab" data-toggle="tab" href="#pro1" role="tab" aria-controls="pro1" (click)="getOurProducts()"
+              aria-selected="true">Our
+              Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pro2-tab" data-toggle="tab" href="#pro2" role="tab" aria-controls="pro2" (click)="getYourProduct()"
+              aria-selected="false">Your
+              Products
+            </a>
+          </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="pro1" role="tabpanel" aria-labelledby="pro1-tab">
+            <div class="controls text-center">
+              <a class="filter btn btn-common" data-filter="all">
+                All
+              </a>
+
+              <div class="dropdown" *ngFor="let cat of productCategories">
+                <button class="btn btn-common  catChildSelected">{{ cat.Name }}</button>
+                <div class="dropdown-content">
+
+                  <a class="filter" *ngFor="let i of cat.Childs" (click)="setCategoryCode(i.Code)" >{{ i.Name }}</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pro2" role="tabpanel" aria-labelledby="pro2-tab">
+            <div class="controls text-center">
+              <a class="filter active btn btn-common" (click)="setMainCategoryCode(cat.Code)" *ngFor="let cat of mainProductCategories">
+                {{ cat.Name }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="my-10"><span class="h5-styling">Refine your search: </span> <span id="selectedRefinements">
+
+            <span only-child="" class="selectedFilter" *ngFor="let i of selectedSizes; let ind = index;" (click)="removeitemFromSelectedSizes(ind)">
+              &nbsp;
+              <a data-id="2" class="refinementFilter" style="cursor: pointer;"><span>{{ i.text }}</span>
+                &nbsp;
+                <span class="fa fa-times-circle-o text-blue"></span></a>
+              &nbsp;|&nbsp;
+            </span>
+
+            <span only-child="" class="selectedFilter" *ngFor="let i of selectedColors; let ind = index;" (click)="removeitemFromSelectedSizes(ind)">
+              &nbsp;
+              <a data-id="2" class="refinementFilter" style="cursor: pointer;"><span>{{ i.text }}</span>
+                &nbsp;
+                <span class="fa fa-times-circle-o text-blue"></span></a>
+              &nbsp;|&nbsp;
+            </span>
+
+            <span only-child="" class="selectedFilter" *ngFor="let i of selectedMaterials; let ind = index;" (click)="removeitemFromSelectedMaterials(ind)">
+              &nbsp;
+              <a data-id="2" class="refinementFilter" style="cursor: pointer;"><span>{{ i.text }}</span>
+                &nbsp;
+                <span class="fa fa-times-circle-o text-blue"></span></a>
+              &nbsp;|&nbsp;
+            </span>
+
+            <span only-child="" class="selectedFilter" *ngFor="let i of selectedPrinting; let ind = index;" (click)="removeitemFromSelectedPrinting(ind)">
+              &nbsp;
+              <a data-id="2" class="refinementFilter" style="cursor: pointer;"><span>{{ i.text }}</span>
+                &nbsp;
+                <span class="fa fa-times-circle-o text-blue"></span></a>
+              &nbsp;|&nbsp;
+            </span>
+
+            <span only-child="" class="selectedFilter" *ngFor="let i of selectedShapes; let ind = index;" (click)="removeitemFromSelectedShapes(ind)">
+              &nbsp;
+              <a data-id="2" class="refinementFilter" style="cursor: pointer;"><span>{{ i.text }}</span>
+                &nbsp;
+                <span class="fa fa-times-circle-o text-blue"></span></a>
+              &nbsp;|&nbsp;
+            </span>
+
+            <a class="clearallrefiners" style="cursor: pointer;" (click)="clearFilters()">Clear All</a></span></div>
+
+
+        <div class="row">
+          <div class="col-md-2 col-of-10">
+            <div class="secondLvlFItem">
+              <select class="selectSize" #Size name="Size" data-name="Size" multiple="multiple">
+                <option *ngFor="let i of sizes" [value]="i.Code">{{ i.Name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 col-of-10">
+            <div class="secondLvlFItem">
+              <select class="selectColor" #Color name="Color" data-name="Color" multiple="multiple">
+                <option *ngFor="let i of colors" [value]="i.Code">{{ i.Name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 col-of-10">
+            <div class="secondLvlFItem">
+              <select class="selectMaterial" #Material name="Material" data-name="Material" multiple="multiple">
+                <option *ngFor="let i of materials" [value]="i.Code">{{ i.Name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 col-of-10">
+            <div class="secondLvlFItem">
+              <select class="selectPrinting" #Printing name="Printing" data-name="Printing" multiple="multiple">
+                <option value="true">Printable</option>
+                <option value="false">Not Printable</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 col-of-10">
+            <div class="secondLvlFItem">
+              <select class="selectOption5" #Shape name="Shape" data-name="Shape" multiple="multiple">
+                <option *ngFor="let i of shapes" [value]="i.Code">{{ i.Name }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="portfolio" class="row">
+          <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mix packaging x1" *ngFor="let p of products">
+            <div class="portfolio-item">
+              <div class="shot-item">
+                <img [src]="serverUrl + p.ProductImage" alt="" />
+                <a class="overlay lightbox" [href]="serverUrl + p.ProductImage">
+                  <i class="lnr lnr-eye item-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+    <div class="text-center"><br />
+      <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Our Products</a>
+    </div>
+  </div>
+  <!-- Container Ends -->
+</section>

@@ -1,0 +1,55 @@
+<section id="contact" class="section wow slideInRight" data-stellar-background-ratio="" data-wow-delay="0.2s">
+  <div class="contact-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+          <div class="contact-us">
+            <h3>Contact With us</h3>
+            <div class="contact-address">
+              <p>27 El-Shaheed Mohamed Kenaya St. Almaza, Heliopolis, Cairo, Egypt</p>
+              <p class="phone">Phone: <span>(+202 24 182 766)</span></p>
+              <p class="phone">Fax: <span>(+202 24 176 925)</span></p>
+              <p class="email">E-mail: <span>(info@pet-egypt.com)</span></p>
+            </div>
+            <div class="social-icons">
+              <ul>
+                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="contact-block">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="name" #UserName (change)="setUserEmail(UserName.value)" name="name" placeholder="Your Name"  data-error="Please enter your name">
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" placeholder="Your Email" id="email" #UserEmail (change)="setUserName(UserEmail.value)" ([ngModel])="message.UserEmail" class="form-control" name="email"  data-error="Please enter your email">
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control" id="message" #Message (change)="setMessage(Message.value)" placeholder="Your Message" ([ngModel])="message.Message" rows="8" data-error="Write your message" ></textarea>
+                      <div class="help-block"></div>
+                    </div>
+                    <div class="submit-button text-center">
+                      <button class="btn btn-common" id="submit" type="submit" [disabled]="!enableSend" (click)="sendMessage()">Send Message</button>
+                      <div id="msgSubmit" class="h3 text-center hidden"></div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

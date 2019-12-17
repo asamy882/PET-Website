@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" [(ngModel)]="codeSearch"  class="col-lg-6" style="width: 100%" placeholder="CODE">
+    </div>
+    <div class="col-lg-4">
+      <input type="text" [(ngModel)]="nameSearch"  style="width: 100%" class="col-lg-6" placeholder="NAME">
+    </div>
+    <div class="col-lg-4">
+      <input type="email" [(ngModel)]="emailSearch" style="width: 100%" class="col-lg-6" placeholder="E-mail">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6" >
+      <select style="width: 100%" [(ngModel)]="countrySearch">
+        <option *ngFor="let item of countries" [value]="item" [selected]="item" >{{item.Name}}</option>
+      </select>
+    </div>
+    <div class="col-lg-6">
+      <select style="width: 100%" [(ngModel)]="customerTypeSearch">
+        <option *ngFor="let item of customerTypes" [value]="item">{{item.Name}}</option>
+      </select>
+    </div>
+  </div>
+  <i (click)="searchForCustomer()" class="fa fa-search" ></i>
+</div>
+<app-data-table [columnDefs]="colDefs" [rowData]="rowData" (addTriggered)="showDialog()"></app-data-table>
+<p-dialog header="Customer" [(visible)]="display" [modal]="true" [responsive]="true" [width]="800" [minWidth]="200" [minY]="70"
+  [maximizable]="true" [baseZIndex]="10000">
+  <div class="container">
+    <div class="row">
+      <input type="text" class="col-lg-6" placeholder="CODE">
+      <input type="text" class="col-lg-6" placeholder="NAME">
+    </div>
+    <div class="row">
+      <input type="text" class="col-lg-6" placeholder="CompanyAddress">
+      <input type="text" class="col-lg-6" placeholder="Logo">
+    </div>
+    <div class="row">
+      <input type="text" class="col-lg-6" placeholder="Responsible">
+      <input type="text" class="col-lg-6" placeholder="AreaCode">
+    </div>
+    <div class="row">
+      <input type="text" class="col-lg-6" placeholder="RegNo">
+      <input type="text" class="col-lg-6" placeholder="FileNo">
+    </div>
+  </div>
+  <p-footer>
+    <i (click)="display=false" class="fa fa-save"></i>
+    <i (click)="display=false" class="fa fa-remove"></i>
+  </p-footer>
+</p-dialog>
+
+<!-- <button type="button" (click)="display=true" icon="btn fa fa-infO" label="Show"></button> -->

@@ -1,0 +1,22 @@
+<i (click)="AddEventFucntion()" class="fa fa-plus" ></i>
+<p-table #dt [columns]="columnDefs" [value]="rowData">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.headerName}}
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.headerName]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

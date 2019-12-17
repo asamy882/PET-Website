@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">PET</a>
+      <a class="btn" (click)="openSideMenu()">
+        <span class="fa fa-bars burgerMenu"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+<p-sidebar [visible]="display" [baseZIndex]="10000">
+  <h1 style="font-weight:normal">Admin Menu</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="row"><a [routerLink]="['./customer']" (click)="display=false">Customers</a></th>
+      </tr>
+    </thead>
+  </table>
+</p-sidebar>
+<router-outlet></router-outlet>

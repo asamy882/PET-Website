@@ -1,0 +1,113 @@
+<app-login></app-login>
+
+<!-- Header Section Start -->
+  <header class="inner-header news-header">
+    <!-- Navbar Start -->
+    <app-main-menu></app-main-menu>
+    <!-- Navbar End -->
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-7">
+                <div class="contents">
+                    <div class="text-center">
+                        <h2><span>News & Events</span></h2>
+                        <div class="breadcrumbs">
+                            <div class="container">
+                                <ol class="breadcrumb">
+                                    <li><a routerLink='/pages/home'>home</a><span>//</span></li>
+                                    <li><a routerLink='/pages/newsandevents'>News & Events</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- Header Section End -->
+  <section class="inner-container">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title2 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">News & Events <span></span></h2>
+            <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+        </div>
+        <!-- div class="styleSwitch">
+            <form class="form-inline">
+                    <button type="button" class="btn mb-2" (click)="changeStyleFlag('newsStyle2')" ><i class="fa fa-list-ul"></i></button>
+                    <button type="button" class="btn mb-2 active" (click)="changeStyleFlag('newsStyle1')"><i class="fa fa-th-large"></i></button>
+                <div class="form-group mb-2">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>30 Days Ago</option>
+                      <option>2 Months Ago</option>
+                      <option>3 Months Ago</option>
+                      <option>1 Year Ago</option>
+                    </select>
+                  </div>
+
+              </form>
+        </div -->
+
+        <p-dataView #dv [value]="articals" [paginator]="true" [rows]="20" paginatorPosition="both">
+      <p-header>
+          <div class="ui-helper-clearfix">
+              <div class="ui-g">
+
+                  <div class="ui-g-6 ui-md-4" style="text-align:right">
+                      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                  </div>
+              </div>
+          </div>
+      </p-header>
+      <ng-template let-art pTemplate="listItem">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+            <div class="blog-item-wrapper">
+                <div class="blog-item-img">
+                  <a href="single-post.html">
+                    <img [src]="art.ArticleImage" alt="">
+                  </a>
+                </div>
+                <div class="blog-item-text">
+                  <div class="meta-tags">
+                    <span class="date"><i class="lnr  lnr-clock"></i>{{ art.PublishingDate }}</span>
+                  </div>
+                  <h3>
+                    <a href="single-post.html">{{ art.Title }}</a>
+                  </h3>
+                  <p>
+                      {{ art.Body }}
+                  </p>
+                  <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+      </ng-template>
+      <ng-template let-art pTemplate="gridItem">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+              <div class="blog-item-wrapper">
+                  <div class="blog-item-img">
+                    <a href="single-post.html">
+                      <img [src]="art.ArticleImage" alt="">
+                    </a>
+                  </div>
+                  <div class="blog-item-text">
+                    <div class="meta-tags">
+                      <span class="date"><i class="lnr  lnr-clock"></i>{{ art.PublishingDate }}</span>
+                    </div>
+                    <h3>
+                      <a href="single-post.html">{{ art.Title }}</a>
+                    </h3>
+                    <p>
+                        {{ art.Body }}
+                    </p>
+                    <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+      </ng-template>
+  </p-dataView>
+
+
+
+    </div>
+  </section>
